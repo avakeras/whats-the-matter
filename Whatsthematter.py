@@ -12,6 +12,7 @@ while True:
         print("This is not an organic molecule :( Try again!")
         continue
 
+    # Counts the number of carbon and hydrogen atoms
     i = 0
     sumC = 0
     sumH = 0
@@ -28,6 +29,7 @@ while True:
                 sumH += 1     
         i += 1    
 
+    # Provides a prefix based on the number of carbon molecules
     def prefix(sumC):
         if sumC == 1:
             return (" methan")
@@ -47,10 +49,11 @@ while True:
             return (" octan")
         if sumC == 9:
             return (" nonan")
-        
+
     def statement(sumC):
         return ("This is a" + prefix(sumC))
-        
+
+    # Identifies functional groups with -OH and -HO endings
     if mol[-2] == "H" and mol[-1] == "O": 
        print(statement(sumC) + "al molecule!") #aldehyde
        break
@@ -62,6 +65,7 @@ while True:
             print(statement(sumC) + "oic acid molecule!") #carboxylic acid
             break
 
+    # Identifies functional groups containing "O"
     if "O" in mol:
         if mol[mol.find("O") - 1] == "O" or mol[mol.find("O") + 1] == "O":
             print("This molecule is an ester!") #ester
@@ -73,6 +77,7 @@ while True:
             print("This molecule is an ether!") #ether
             break
 
+# If no other functional groups present, assigns the molecule as an alkane, alkene, or alkyne
 # Doesn't work for sums of C and H over 9
 # Doesn't work for molecules with more than one double / triple bond
     if sumC == (sumH/2): #alkene
