@@ -1,6 +1,9 @@
+#Welcome to Whatsthematter!
+
 # Does not work with amines or amides, halogenoalkanes, nor molecules with more than one functional group (including double and triple bonds).
 # Cannot print specific names for esters or ethers due to potential side chains and more complicated nomenclature.
 # Ensure all letters of the strucutral formula are in uppercase. 
+
 while True:
     mol = input("Enter the molecular formula for an organic compound:")
 
@@ -31,24 +34,8 @@ while True:
 
     # Provides a prefix based on the number of carbon molecules
     def prefix(sumC):
-        if sumC == 1:
-            return (" methan")
-        if sumC == 2:
-            return ("n ethan")
-        if sumC == 3:
-            return (" propan")
-        if sumC == 4:
-            return (" butan")
-        if sumC == 5:
-            return (" pentan")
-        if sumC == 6:
-            return (" hexan")
-        if sumC == 7:
-            return (" heptan")
-        if sumC == 8:
-            return (" octan")
-        if sumC == 9:
-            return (" nonan")
+        prefixes = ["", " methan", "n ethan", " propan", " butan", " pentan", " hexan", " heptan", " octan", " nonan"]
+        return prefixes[sumC] if 1 <= sumC <= 9 else ""
 
     def statement(sumC):
         return ("This is a" + prefix(sumC))
